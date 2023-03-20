@@ -2,29 +2,48 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-} from "react-router-dom"
-import OrganizationLayout from "../layout/OrganizationLayout"
-import RestaurantLayout from "../layout/RestaurantLayout"
-import Login from "../pages/auth/login/Login"
-import Register from "../pages/auth/register/Register"
-import OrgnizationDonations from "../pages/organization/donations/OrgnizationDonations"
-import Donations from "../pages/restaurant/donations/Donations"
-import Items from "../pages/restaurant/items/Items"
-import SingleItem from "../pages/restaurant/item[id]/SingleItem"
-import Order from "../pages/restaurant/orders/Order"
-import DonateNow from "../pages/Donate/DonateNow"
-import JoinOrg from "../pages/joinOrganization/JoinOrg"
-import JoinRes from "../pages/joinRestaurant/JoinRes"
+} from "react-router-dom";
+import OrganizationLayout from "../layout/OrganizationLayout";
+import RestaurantLayout from "../layout/RestaurantLayout";
+import Login from "../pages/auth/login/Login";
+import Register from "../pages/auth/register/Register";
+import OrgnizationDonations from "../pages/organization/donations/OrgnizationDonations";
+import Donations from "../pages/restaurant/donations/Donations";
+import Items from "../pages/restaurant/items/Items";
+import SingleItem from "../pages/restaurant/item[id]/SingleItem";
+import Order from "../pages/restaurant/orders/Order";
+import DonateNow from "../pages/Donate/DonateNow";
+import JoinOrg from "../pages/joinOrganization/JoinOrg";
+import JoinRes from "../pages/joinRestaurant/JoinRes";
+import HomeRestaurant from "../pages/Home/HomeRestaurant";
+import RestaurantHome from "../pages/view_restaurants/RestaurantHome";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route path="/">
         <Route
+          index
+          path=""
+          element={
+            <>
+              <HomeRestaurant />
+            </>
+          }
+        />
+        <Route
           path="/login"
           element={
             <>
               <Login />
+            </>
+          }
+        />
+        <Route
+          path="/restaurantHome"
+          element={
+            <>
+              <RestaurantHome />
             </>
           }
         />
@@ -45,7 +64,7 @@ export const router = createBrowserRouter(
             </>
           }
         />
-         <Route
+        <Route
           path="/join_org"
           element={
             <>
@@ -62,7 +81,6 @@ export const router = createBrowserRouter(
             </>
           }
         />
-
       </Route>
 
       <Route path="/restaurant" element={<RestaurantLayout />}>
@@ -74,7 +92,7 @@ export const router = createBrowserRouter(
 
       <Route path="organizationlayout" element={<OrganizationLayout />} />
       <Route path="organizationdonation" element={<OrgnizationDonations />} />
-      <Route path="organization" element={<Organization />}></Route>
+      {/* <Route path="organization" element={<Organization />}></Route> */}
     </Route>
   )
 );
